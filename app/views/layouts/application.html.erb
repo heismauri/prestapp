@@ -13,7 +13,9 @@
 </head>
 
 <body>
-  <p class="alert notice"><%= notice %></p>
+  <% if notice %>
+  <p class="alert alert-warning alert-dismissible fade show"><%= notice %></p>
+  <% end %>
   <p class="alert"><%= alert %></p>
   <%= render "shared/nabvar" %>
   <%= yield %>

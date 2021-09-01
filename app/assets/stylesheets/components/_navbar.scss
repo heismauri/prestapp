@@ -3,14 +3,28 @@
   font-weight: bold;
 }
 
-.bg-orange {
+.navbar-prestapp {
+  justify-content: space-between;
   background-color: $pure-orange;
+  padding: 1rem 1.5rem;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-prestapp .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-search {
+  position: relative;
+  flex-grow: 1;
+  max-width: 500px;
+  [type="search"] {
+    border: none;
+    width: 100%;
+  }
+  .nav-mgngls {
+    background-color: transparent;
+    border: none;
+    right: 15px;
+    position: absolute;
+  }
 }
