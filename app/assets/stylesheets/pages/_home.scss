@@ -14,3 +14,9 @@
 .section-body {
   width: 100%;
 }
+
+@include media-breakpoint-down(md) {
+  .main-banner {
+    background-position: left;
+  }
+}
