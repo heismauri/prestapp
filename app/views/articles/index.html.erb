@@ -1,9 +1,8 @@
 <h1>Articles#index</h1>
 <p>Find me in app/views/articles/index.html.erb</p>
 <% @articles.each do |article| %>
-  <h5><%= article.name %></h5>
-  <%= link_to "Ver articulo", article_path(article) %>
-  <%= link_to "Actualizar", edit_article_path(article) %>
-  <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro de Eliminar #{article.name}?" } %>
+<h5><%= article.name %></h5>
+<%= link_to "Ver articulo", article_path(article) %>
+<%= link_to "Actualizar", edit_article_path(article) %>
+<%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro de eliminar #{article.name}?" } %>
 <% end %>
-
