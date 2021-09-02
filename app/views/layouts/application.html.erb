@@ -18,7 +18,12 @@
   <% end %>
   <p class="alert"><%= alert %></p>
   <%= render "shared/nabvar" %>
-  <%= yield %>
+  <% if current_page?(root_path) %>
+  <%= render "pages/mainbanner" %>
+  <% end %>
+  <div class="container py-4">
+    <%= yield %>
+  </div>
   <%= render "shared/footer" %>
 </body>
 

@@ -4,5 +4,6 @@
   <h5><%= article.name %></h5>
   <%= link_to "Ver articulo", article_path(article) %>
   <%= link_to "Actualizar", edit_article_path(article) %>
-  <%= link_to "Eliminar", article_path(article) %>
+  <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro de Eliminar?" } %>
 <% end %>
+

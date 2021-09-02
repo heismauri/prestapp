@@ -3,9 +3,12 @@
   font-weight: bold;
 }
 
+.bg-orange {
+  background-color: $pure-orange;
+}
+
 .navbar-prestapp {
   justify-content: space-between;
-  background-color: $pure-orange;
   padding: 1rem 1.5rem;
 }
 
@@ -22,9 +25,10 @@
     width: 100%;
   }
   .nav-mgngls {
+    color: $dark-cyan;
     background-color: transparent;
     border: none;
-    right: 15px;
+    right: 8px;
     position: absolute;
   }
 }

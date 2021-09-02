@@ -1,2 +1,11 @@
 <h1>Articles#edit</h1>
 <p>Find me in app/views/articles/edit.html.erb</p>
+
+
+<%= simple_form_for(@article) do |article| %>
+  <%= article.input :name %>
+  <%= article.input :description %>
+  <%= article.input :price %>
+  <%= article.association :category, as: :select %>
+  <%= article.submit "Actualizar Articulo", class: "btn btn-primary" %>
+<% end %>

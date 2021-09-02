@@ -30,9 +30,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article.update(article_params)
+    redirect_to article_path(@article)
   end
 
-  def delete
+  def destroy
     @article.destroy
     redirect_to articles_path
   end
