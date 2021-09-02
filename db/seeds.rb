@@ -74,14 +74,14 @@ user_zara = User.create(first_name: "Zara", last_name: "Larsson", email: "zarala
 [user_alberto, user_zara].each do |user|
   a = 0
   5.times do
-    article = Article.create(
+    article = Article.new(
       name: "Article #{a + 1}",
-      description: "Lorem ipsum #{a + 1}",
+      description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum #{a + 1}",
       price: (a + 2) * 5000
     )
     article.category = Category.first
     article.user = user
-    article.save
+    article.save!
     a += 1
     puts "Creando articulo #{a} de #{user.first_name}"
   end
