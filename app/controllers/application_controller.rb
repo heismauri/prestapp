@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  include Pundit
+  helper_method :current_order
 
   # Pundit: allowsite approach.
   #after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -11,6 +12,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     root_path
+  end
+
+  def current_order
+    unless current_user.nil?
+      last_order = current_user.orders.initialized_order || nil
+      last_order = current_user.orders.create(status: "initialized") unless last_order.present?
+      return last_order
+    end
   end
 
   private
