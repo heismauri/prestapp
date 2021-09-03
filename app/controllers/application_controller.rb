@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   # Pundit: allowsite approach.
-  #after_action :verify_authorized, except: :index, unless: :skip_pundit?
-  #after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def after_sign_in_path_for(_resource)
     root_path
@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
     unless current_user.nil?
       last_order = current_user.orders.initialized_order || nil
       last_order = current_user.orders.create(status: "initialized") unless last_order.present?
-      return last_order
     end
   end
 
