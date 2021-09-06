@@ -2,3 +2,11 @@
 <h2> Precio: <%= @article.price %></h2>
 <h5>Descripción:</h5>
 <p><%= @article.description %></p>
+<% unless policy(@article).owner?%>
+<%= form_with(model: current_order.order_items.new) do |f| %>
+<%= f.hidden_field :order_id, value: current_order.id %>
+<%= f.hidden_field :article_id, value: @article.id %>
+<%= f.hidden_field :quantity, value: 1 %>
+<%= f.submit "Agregar", class: "btn btn-primary" %>
+<% end %>
+<% end %>

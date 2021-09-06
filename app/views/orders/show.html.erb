@@ -1,1 +1,9 @@
-<%= current_order %>
+<h1>Mi carrito</h1>
+<% current_order.order_items.each do |item| %>
+<div class="card">
+  <h5><%= item.article.name %></h5>
+  <%= link_to order_item_path(item), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{item.article.name}'?" } do %>
+  <i class="fas fa-trash"></i>
+  <% end %>
+</div>
+<% end %>
