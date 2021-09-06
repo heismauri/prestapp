@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
-
+  skip_before_action :authenticate_user!, only: %i[show search]
   # rescue_from Pundit::NotAuthorizedError do
   #   redirect_to root_path, alert: "You aren't allowed to do that"
   # end
@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
 
   def search
     @parameter = params[:search].downcase
-    @results = Article.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    @results = Article.search_results(@parameter)
   end
 
   private
