@@ -1,0 +1,13 @@
+@include media-breakpoint-up(sm) {
+  body {
+    min-height: 100vh;
+    padding-bottom: 72px;
+    position: relative;
+  }
+  footer {
+    width: 100%;
+    height: 72px;
+    position: absolute;
+    bottom: 0;
+  }
+}
