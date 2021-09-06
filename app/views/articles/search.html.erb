@@ -1,1 +1,7 @@
-<%= @results.inspect %>
+<h1>"<%= @parameter %>"</h1>
+<h5><%= pluralize(@results.length, "result") %></h5>
+<% @results.each do |result| %>
+<div class="card mb-3">
+  <%= link_to result.name, article_path(result) %>
+</div>
+<% end %>
