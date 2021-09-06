@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     unless current_user.nil?
       last_order = current_user.orders.initialized_order || nil
       last_order = current_user.orders.create(status: "initialized") unless last_order.present?
+      return last_order
     end
   end
 
