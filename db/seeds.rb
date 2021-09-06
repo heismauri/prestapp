@@ -70,23 +70,66 @@ user_alberto = User.create(first_name: "Alberto", last_name: "Armani", email: "a
 puts "Creando usuario 2"
 user_zara = User.create(first_name: "Zara", last_name: "Larsson", email: "zaralar@go.com", password: "12345678")
 
-# Adding 5 Articles to user 1
-articlesShop = %w[Taladro Llantas Silla Vestido Polera Pantalon Zapatillas Notebook Parlante Refrigerador]
-a = 0
-b = Category.count
-[user_alberto, user_zara].each do |user|
-  5.times do
-    article = Article.new(
-      name: articlesShop[a],
-      description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum #{a + 1}",
-      price: (a + 2) * 5000
-    )
-    article.category = Category.first
-    article.user = user
-    article.save!
-    a += 1
-    puts "Creando articulo #{a} de #{user.first_name}"
-  end
-end
+puts "Agregando Articulos usuario 1..."
+# Adding 4 Articles to user 1
+art_file = URI.open('https://source.unsplash.com/NA8FlWwxnaM/1080x1080')
+art_u1 = Article.new(name: 'Vestido', description: Faker::Lorem.paragraph_by_chars, price: 67000)
+art_u1.picture.attach(io: art_file, filename: 'NA8FlWwxnaM.jpg', content_type: 'image/jpg')
+art_u1.category = wmn_category
+art_u1.user = user_alberto
+art_u1.save
 
-puts "Completada carga de BD"
+art_file = URI.open('https://source.unsplash.com/66JMudIjDTw/1080x1080')
+art_u1 = Article.new(name: 'Parlante', description: Faker::Lorem.paragraph_by_chars, price: 44000)
+art_u1.picture.attach(io: art_file, filename: '66JMudIjDTw.jpg', content_type: 'image/jpg')
+art_u1.category = elec_category
+art_u1.user = user_alberto
+art_u1.save
+
+puts "50% completado..."
+art_file = URI.open('https://source.unsplash.com/w2VLVCg5K-k/1080x1080')
+art_u1 = Article.new(name: 'Caja Herramientas', description: Faker::Lorem.paragraph_by_chars, price: 77500)
+art_u1.picture.attach(io: art_file, filename: 'w2VLVCg5K-k.jpg', content_type: 'image/jpg')
+art_u1.category = hym_category
+art_u1.user = user_alberto
+art_u1.save
+
+art_file = URI.open('https://source.unsplash.com/-HJDhIQ4jYE/1080x1080')
+art_u1 = Article.new(name: 'Disfraz', description: Faker::Lorem.paragraph_by_chars, price: 95000)
+art_u1.picture.attach(io: art_file, filename: '-HJDhIQ4jYE.jpg', content_type: 'image/jpg')
+art_u1.category = dsf_category
+art_u1.user = user_alberto
+art_u1.save
+
+# Adding 5 Articles to user 1
+puts "Agregando Articulos usuario 2..."
+art_file = URI.open('https://source.unsplash.com/WnY0-rZnPvc/1080x1080')
+art_u1 = Article.new(name: 'Zapatillas And1', description: Faker::Lorem.paragraph_by_chars, price: 59990)
+art_u1.picture.attach(io: art_file, filename: 'WnY0-rZnPvc.jpg', content_type: 'image/jpg')
+art_u1.category = man_category
+art_u1.user = user_zara
+art_u1.save
+
+art_file = URI.open('https://source.unsplash.com/4yEMu_YamEo/1080x1080')
+art_u1 = Article.new(name: 'Jeep 4x4', description: Faker::Lorem.paragraph_by_chars, price: 2750000)
+art_u1.picture.attach(io: art_file, filename: '4yEMu_YamEo.jpg', content_type: 'image/jpg')
+art_u1.category = car_category
+art_u1.user = user_zara
+art_u1.save
+
+puts "50% completado..."
+art_file = URI.open('https://source.unsplash.com/FU1KddSIIR4/1080x1080')
+art_u1 = Article.new(name: 'Evento Jazz', description: Faker::Lorem.paragraph_by_chars, price: 18000)
+art_u1.picture.attach(io: art_file, filename: 'FU1KddSIIR4.jpg', content_type: 'image/jpg')
+art_u1.category = evts_category
+art_u1.user = user_zara
+art_u1.save
+
+art_file = URI.open('https://source.unsplash.com/KfMj3fi4R4s/1080x1080')
+art_u1 = Article.new(name: 'Camara Profesional', description: Faker::Lorem.paragraph_by_chars, price: 125000)
+art_u1.picture.attach(io: art_file, filename: 'KfMj3fi4R4s.jpg', content_type: 'image/jpg')
+art_u1.category = elec_category
+art_u1.user = user_zara
+art_u1.save
+
+puts "Proceso finalizado"
