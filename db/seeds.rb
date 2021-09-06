@@ -71,11 +71,13 @@ puts "Creando usuario 2"
 user_zara = User.create(first_name: "Zara", last_name: "Larsson", email: "zaralar@go.com", password: "12345678")
 
 # Adding 5 Articles to user 1
+articlesShop = %w[Taladro Llantas Silla Vestido Polera Pantalon Zapatillas Notebook Parlante Refrigerador]
+a = 0
+b = Category.count
 [user_alberto, user_zara].each do |user|
-  a = 0
   5.times do
     article = Article.new(
-      name: "Article #{a + 1}",
+      name: articlesShop[a],
       description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum #{a + 1}",
       price: (a + 2) * 5000
     )
@@ -85,7 +87,6 @@ user_zara = User.create(first_name: "Zara", last_name: "Larsson", email: "zarala
     a += 1
     puts "Creando articulo #{a} de #{user.first_name}"
   end
-  a = 0
 end
 
 puts "Completada carga de BD"
