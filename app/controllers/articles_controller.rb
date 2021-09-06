@@ -40,6 +40,11 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def search
+    @parameter = params[:search].downcase
+    @results = Article.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+  end
+
   private
 
   def set_article

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :articles
+  get '/search', to: 'articles#search'
   resources :categories, only: %i[index show]
   resources :orders, only: %i[show]
   resources :order_items, only: %i[new create destroy]
