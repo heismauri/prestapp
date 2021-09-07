@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @articles = Article.most_recent
+    @categories = Category.ramdom_category
   end
 end
