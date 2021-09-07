@@ -1,0 +1,12 @@
+<%= simple_form_for(@article) do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<div class="col-6">
+  <%= f.input :price %>
+</div>
+<div class="col-6">
+  <%= f.association :category, as: :select %>
+</div>
+<%= f.input :picture, as: :file, input_html: { class: "form-control" } %>
+<%= f.submit class: "btn btn-primary" %>
+<% end %>
