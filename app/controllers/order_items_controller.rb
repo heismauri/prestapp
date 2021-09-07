@@ -1,17 +1,18 @@
 class OrderItemsController < ApplicationController
   before_action :authenticate_user!
-
-  before_action :set_order, only: %i[create destroy]
+  before_action :set_order, only: %i[create]
 
   def create
     @order_item = @order.order_items.new(order_item_params)
     article = Article.find(@order_item.article_id)
 
     user = article.try(:user)
-
     if user == current_user
       redirect_location = order_path(@order)
       flash[:alert] = "No podes agregar tu propio producto"
+    elsif !current_order.order_items.find_by(article_id: article.id).nil?
+      flash[:alert] = "Ya tienes este artículo"
+      redirect_location = article_path(article)
     else
       if @order_item.save
         flash[:notice] = "Bingo! Agregaste un articulo en tu carro de compras"
@@ -26,10 +27,10 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order_item = @order.order_items.find_by(id: params[:id])
+    @order_item = current_order.order_items.find(params[:id])
     @order_item.destroy
 
-    redirect_to order_path(@order), notice: "Articulo eliminado"
+    redirect_to order_path(current_order), notice: "Articulo eliminado"
   end
 
   private
