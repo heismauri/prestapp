@@ -10,4 +10,8 @@ class Article < ApplicationRecord
   scope :most_recent, -> { order("created_at DESC").limit(6) }
   scope :search_results, ->(parameter) { where("lower(name) LIKE ?", "%#{parameter}%") }
   scope :available, -> { where(rented: false) }
+
+  def formatted_price
+    ActiveSupport::NumberHelper.number_to_currency(price, unit: "$", separator: ",", delimiter: ".", precision: 0)
+  end
 end
