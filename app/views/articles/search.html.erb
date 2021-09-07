@@ -1,7 +1,20 @@
 <h1>"<%= @parameter %>"</h1>
 <h5><%= pluralize(@results.length, "result") %></h5>
-<% @results.each do |result| %>
-<div class="card mb-3">
-  <%= link_to result.name, article_path(result) %>
+<div class="row">
+  <div class="col-3">
+  </div>
+  <div class="col-9">
+    <div class="border rounded">
+      <% @results.each do |result| %>
+      <div class="search-card border-bottom row m-0 p-3">
+        <div class="search-image col p-0">
+          <%= cl_image_tag result.picture.key, class: "img-fluid rounded shadow", alt: "", width: 200, height: 200, crop: :fill %>
+        </div>
+        <div class="seach-body col-8 p-0">
+          <%= link_to result.name, article_path(result) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>

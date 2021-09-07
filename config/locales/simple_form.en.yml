@@ -1,15 +1,20 @@
 en:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": "Yes"
+    "no": "No"
     required:
-      text: 'required'
-      mark: '*'
+      text: "required"
+      mark: "*"
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    placeholders:
+      article:
+        name: "The name of your article"
+        description: "A short description of your article"
+        category: "Select the category that fits best"
     # Examples
     # labels:
     #   defaults:
