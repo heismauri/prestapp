@@ -22,7 +22,6 @@
     <%= form_with(model: current_order.order_items.new) do |f| %>
     <%= f.hidden_field :order_id, value: current_order.id %>
     <%= f.hidden_field :article_id, value: @article.id %>
-    <%= f.submit "Comprar ahora", class: "btn btn-primary btn-block" %>
     <%= f.submit "Agregar al carrito", class: "btn btn-outline-primary btn-block" %>
     <% end %>
     <% end %>

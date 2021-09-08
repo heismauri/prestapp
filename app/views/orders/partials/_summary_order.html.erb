@@ -1,0 +1,11 @@
+<% current_order.order_items.each do |item| %>
+<div class="card">
+  <h2><%= item.article.name %></h2>
+  <%= link_to order_item_path(item), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{item.article.name}'?" } do %>
+  <i class="fas fa-trash"></i>
+  <% end %>
+  <h5><%= item.article.formatted_price %></h5>
+</div>
+<% end %>
+<h5><%= current_order.formatted_total %></h5>
+<%= link_to "Siguient: Envio", edit_order_path(id: current_order, step: "shipping") %>

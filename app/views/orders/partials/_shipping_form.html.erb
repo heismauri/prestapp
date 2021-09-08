@@ -1,0 +1,12 @@
+<%= simple_form_for(@order_detail) do |f| %>
+<%= f.hidden_field :order_id, value: current_order.id %>
+<%= f.input :street %>
+<%= f.input :number %>
+<%= f.input :city %>
+<%= f.input :card_number %>
+<%= f.input :card_type, collection: [
+    ["Visa", "visa"],
+    ["Mastercard", "mastercard"]
+] %>
+<%= f.submit "Confirmar compra", class: "btn btn-outline-primary btn-block" %>
+<% end %>
