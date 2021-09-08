@@ -1,8 +1,25 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
-<% @articles.each do |article| %>
-<h5><%= article.name %></h5>
-<%= link_to "Ver articulo", article_path(article) %>
-<%= link_to "Actualizar", edit_article_path(article) %>
-<%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: "¿Estás seguro de eliminar #{article.name}?" } %>
-<% end %>
+<div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wearetesters.com/wp-content/uploads/2019/07/neonbrand-SvhXD3kPSTY-unsplash-1080x675.jpg')">
+  <h2>Mis productos para Arrendar</h2>
+</div>
+
+<section class="articles">
+  <div class="py-4">
+    <div class="section-header px-3">
+      <h3>Mi listado de productos:</h3>
+    </div>
+  </div>
+
+    <% @articles.each do |result| %>
+      <div class="card-owner col-6">
+        <%= cl_image_tag result.picture.key, class: "card-img-top", alt: "#{result.name}", width: 500, height: 300, crop: :fill %>
+        <div class="card-product-infos">
+          <h2>Nombre: <%= result.name %></h2>
+          <h2>Precio: <%= result.price %></h2>
+          <p><%= result.description %> <strong>relevant info</strong> only.</p>
+          <%= link_to "Ver articulo", article_path(result) %>
+          <%= link_to "Actualizar", edit_article_path(result) %>
+          <%= link_to "Eliminar", article_path(result), method: :delete, data: { confirm: "¿Estás seguro de eliminar #{result.name}?" } %>
+        </div>
+      </div>
+    <% end %>
+</section>
