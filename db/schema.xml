@@ -89,7 +89,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="345" y="399" name="orders">
+<table x="466" y="328" name="orders">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -100,11 +100,15 @@
 <row name="status" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
+<row name="order_detail_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="order_details" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="899" y="398" name="order_items">
+<table x="799" y="221" name="order_items">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -125,6 +129,29 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="697" y="427" name="order_details">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="street" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="city" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="card_number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="card_type" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">

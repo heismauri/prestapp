@@ -13,4 +13,8 @@ class Order < ApplicationRecord
   def formatted_total
     ActiveSupport::NumberHelper.number_to_currency(total, unit: "$", separator: ",", delimiter: ".", precision: 0)
   end
+
+  def total_items
+    order_items.count
+  end
 end

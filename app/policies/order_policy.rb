@@ -1,7 +1,7 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.where(user: user).where.not(status: :initialized).order("updated_at DESC")
     end
   end
 

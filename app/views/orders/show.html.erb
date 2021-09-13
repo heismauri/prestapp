@@ -1,1 +1,33 @@
-<%= @order.inspect %>
+<div class="py-4">
+  <div class="card rounded-sm shadow-sm mb-4">
+    <div class="card-body">
+      <p>
+        <em class="text-muted">Order date:</em> <%= @order.updated_at %>
+      </p>
+      <p>
+        <em class="text-muted">Order ID:</em> <%= @order.id %>
+      </p>
+      <p>
+        <em class="text-muted">Order status:</em> <%= @order.status.capitalize %>
+      </p>
+    </div>
+    <hr class="m-0">
+    <div class="row pt-4 px-4">
+      <% @order.order_items.each do |items| %>
+      <div class="col-md-6 d-flex mb-4">
+        <%= cl_image_tag items.article.picture.key, class: "img-thumbnail", alt: "", width: 100, height: 100, crop: :fill %>
+        <div class="flex-grow-1 p-2">
+          <p class="m-0"><%= items.article.name %></p>
+          <p><small class="text-muted"><%= items.article.category.name %></small></p>
+          <p><%= items.article.formatted_price %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <hr class="m-0">
+    <div class="card-body">
+      <p><em class="text-muted">Order items:</em> <%= @order.total_items %></p>
+      <p><em class="text-muted">Total:</em> <%= @order.formatted_total %></p>
+    </div>
+  </div>
+</div>
