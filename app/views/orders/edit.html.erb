@@ -1,5 +1,3 @@
 <h1>Mi carrito</h1>
 
 <%= render @tpl_name %>
-
-<%= link_to "Confirmar compra", edit_order_path(current_order) if current_order.order_items.size > 0 %>
