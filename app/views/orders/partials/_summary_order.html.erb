@@ -1,11 +1,29 @@
-<% current_order.order_items.each do |item| %>
-<div class="card">
-  <h2><%= item.article.name %></h2>
-  <%= link_to order_item_path(item), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{item.article.name}'?" } do %>
-  <i class="fas fa-trash"></i>
-  <% end %>
-  <h5><%= item.article.formatted_price %></h5>
+<div class="py-4">
+  <div class="card rounded-sm shadow-sm mb-4">
+    <hr class="m-0">
+    <div class="row pt-4 px-4">
+      <% current_order.order_items.each do |items| %>
+        <div class="col-md-6 d-flex mb-4">
+          <%= cl_image_tag items.article.picture.key, class: "img-thumbnail", alt: "", width: 150, height: 150, crop: :fill %>
+          <div class="flex-grow-1 p-2">
+            <p class="m-0">Articulo: <%= items.article.name %></p>
+            <p><small class="text-muted">Categoria: <%= items.article.category.name %></small></p>
+            <p>Precio: <%= items.article.formatted_price %></p>
+            <%= link_to article_path(items), class: "btn btn-outline-primary shadow " do %>
+              <i class="fas fa-eye"> Ver</i>
+            <% end %>
+            <%= link_to order_item_path(items), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{items.article.name}'?" } do %>
+              <i class="fas fa-trash"> Eliminar</i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <hr class="m-0">
+    <div class="card-body">
+      <p><em class="text-muted">Cantidad de Articulos:</em> <%= current_order.total_items %></p>
+      <p><em class="text-muted">Total compra:</em> <%= current_order.formatted_total %></p>
+      <%= link_to "Siguiente: Envio", edit_order_path(id: current_order, step: "shipping"), class: "btn btn-outline-primary btn-block" %>
+    </div>
+  </div>
 </div>
-<% end %>
-<h5><%= current_order.formatted_total %></h5>
-<%= link_to "Siguient: Envio", edit_order_path(id: current_order, step: "shipping") %>
