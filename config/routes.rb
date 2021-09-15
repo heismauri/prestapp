@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :articles
   get '/search', to: 'articles#search'
   resources :categories, only: %i[index show]
-  resources :orders, only: %i[index show edit update]
-  resources :order_items, only: %i[new create destroy]
-  resources :order_details, only: %i[new create destroy]
+  resources :orders, only: %i[index edit update]
+  resources :order_items, only: %i[create destroy]
+  resources :order_details, only: %i[create destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

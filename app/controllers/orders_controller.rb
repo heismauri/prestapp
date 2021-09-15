@@ -6,11 +6,6 @@ class OrdersController < ApplicationController
     authorize @orders
   end
 
-  def show
-    @order = Order.find(params[:id])
-    authorize @order
-  end
-
   def edit
     @order = Order.find(params[:id])
     authorize @order
@@ -20,8 +15,6 @@ class OrdersController < ApplicationController
     when "shipping"
       @order_detail = OrderDetail.new
       @tpl_name = "orders/partials/shipping_form"
-    when "payment"
-      @tpl_name = "orders/partials/payment_form"
     else
       @tpl_name = "orders/partials/summary_order"
     end

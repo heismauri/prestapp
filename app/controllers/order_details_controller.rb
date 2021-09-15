@@ -7,7 +7,7 @@ class OrderDetailsController < ApplicationController
     @order.save
     current_user.orders.create(status: "initialized")
 
-    redirect_to order_path(@order)
+    redirect_to orders_path
   end
 
   private
