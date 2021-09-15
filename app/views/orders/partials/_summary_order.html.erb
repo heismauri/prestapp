@@ -1,5 +1,6 @@
 <div class="py-4">
-  <div class="card rounded-sm shadow-sm mb-4">
+<% if current_order.total_items > 0 %>
+    <div class="card rounded-sm shadow-sm mb-4">
     <hr class="m-0">
     <div class="row pt-4 px-4">
       <% current_order.order_items.each do |items| %>
@@ -9,11 +10,11 @@
             <p class="m-0">Articulo: <%= items.article.name %></p>
             <p><small class="text-muted">Categoria: <%= items.article.category.name %></small></p>
             <p>Precio: <%= items.article.formatted_price %></p>
-            <%= link_to article_path(items), class: "btn btn-outline-primary shadow " do %>
-              <i class="fas fa-eye"> Ver</i>
+            <%= link_to article_path(items.article), class: "btn btn-outline-primary shadow " do %>
+              <i class="fas fa-eye"></i> Ver
             <% end %>
             <%= link_to order_item_path(items), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{items.article.name}'?" } do %>
-              <i class="fas fa-trash"> Eliminar</i>
+              <i class="fas fa-trash"></i> Eliminar
             <% end %>
           </div>
         </div>
@@ -26,4 +27,14 @@
       <%= link_to "Siguiente: Envio", edit_order_path(id: current_order, step: "shipping"), class: "btn btn-outline-primary btn-block" %>
     </div>
   </div>
+  <% else %>
+  <div class="card rounded-sm shadow-sm">
+    <div class="row p-4">
+      <h2 class="display-5 text-center w-100 m-2">No hay articulos en tu carrito 😥</h1>
+</div>
+      <%= link_to "Volver al inicio", root_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
+      <%= link_to "Ver categorías", categories_path, class: "mx-4 mb-4 btn btn-outline-primary" %>  
+    
+  </div>
+<% end %>
 </div>

@@ -30,7 +30,7 @@ class OrderItemsController < ApplicationController
     @order_item = current_order.order_items.find(params[:id])
     @order_item.destroy
 
-    redirect_to order_path(current_order), notice: "Articulo eliminado"
+    redirect_to edit_order_path(current_order), notice: "Articulo eliminado"
   end
 
   private

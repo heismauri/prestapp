@@ -1,12 +1,14 @@
-<%= simple_form_for(@order_detail) do |f| %>
-<%= f.hidden_field :order_id, value: current_order.id %>
-<%= f.input :street %>
-<%= f.input :number %>
-<%= f.input :city %>
-<%= f.input :card_number %>
-<%= f.input :card_type, collection: [
-    ["Visa", "visa"],
-    ["Mastercard", "mastercard"]
-] %>
-<%= f.submit "Confirmar compra", class: "btn btn-outline-primary btn-block" %>
-<% end %>
+<div class="py-4">
+    <%= simple_form_for(@order_detail) do |f| %>
+    <%= f.hidden_field :order_id, value: current_order.id %>
+    <%= f.input :street, :label => "Calle:", placeholder: "Ejemplo: Alameda" %>
+    <%= f.input :number, :label => "Número:", placeholder: "Ejemplo: #253" %>
+    <%= f.input :city, :label => "Ciudad:", placeholder: "Ejemplo: Santiago" %>
+    <%= f.input :card_number, :label => "Número de tarjeta:", placeholder: "Ejemplo: 4659 1234 2345 6789" %>
+    <%= f.input :card_type, :label => "Seleccione tarjeta:", collection: [
+        ["Visa", "visa"],
+        ["Mastercard", "mastercard"]
+    ] %>
+    <%= f.submit "Confirmar compra", class: "btn btn-outline-primary btn-block" %>
+    <% end %>
+</div>

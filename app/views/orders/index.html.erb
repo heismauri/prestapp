@@ -1,10 +1,12 @@
+<h1 class="pt-2">Mis Ordenes:</h1>
+
 <div class="py-4">
   <% @orders.each do |order| %>
   <div class="card rounded-sm shadow-sm mb-4">
     <div class="card-body">
-      <p><em class="text-muted">Order date:</em> <%= order.updated_at %></p>
-      <p><em class="text-muted">Order ID:</em> <%= order.id %></p>
-      <p><em class="text-muted">Order status:</em> <%= order.status.capitalize %></p>
+      <p><em class="text-muted">Fecha de la orden:</em> <%= order.updated_at %></p>
+      <p><em class="text-muted">Número de seguimiento:</em> <%= order.id %></p>
+      <p><em class="text-muted">Estado de la orden:</em> <strong class="badge bg-primary text-wrap" style="width: 6rem;"><%= order.status.capitalize %></p></strong>
     </div>
     <hr class="m-0">
     <div class="row pt-4 px-4">
