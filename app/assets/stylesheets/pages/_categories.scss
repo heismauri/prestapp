@@ -21,7 +21,7 @@
 
 .card-owner {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -36,9 +36,9 @@
 }
 
 .card-owner h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin: 0;
+  margin: 5px 5px 5px 10px;
 }
 
 .card-owner p {
@@ -51,4 +51,8 @@
 
 .card-owner .card-owner-infos {
   padding: 16px;
+}
+
+.card-owner i {
+  margin-left: 10px;
 }
