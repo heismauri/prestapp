@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: ''
   root to: 'pages#home'
+  resources :pages, only: %i[show], path: '', param: :page
   resources :articles
   get '/search', to: 'articles#search'
   resources :categories, only: %i[index show]

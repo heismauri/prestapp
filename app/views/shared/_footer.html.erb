@@ -3,13 +3,13 @@
     <div class="row justify-content-between px-3 py-4">
       <ul class="list-inline m-0">
         <li class="list-inline-item">
-          <a href="#" class="text-reset">Quienes somos</a>
+          <%= link_to "Quienes somos", page_path(:about), class: "text-reset" %>
         </li>
         <li class="list-inline-item">
-          <a href="#" class="text-reset">Condiciones</a>
+          <%= link_to "Condiciones", page_path(:conditions), class: "text-reset" %>
         </li>
         <li class="list-inline-item">
-          <a href="#" class="text-reset">Contacto</a>
+          <%= link_to "Contacto", page_path(:contact), class: "text-reset" %>
         </li>
       </ul>
       <ul class="list-inline m-0">
