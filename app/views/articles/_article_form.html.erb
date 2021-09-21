@@ -1,16 +1,16 @@
 <div class="col-md-8 mx-auto p-3">
   <%= simple_form_for(@article) do |f| %>
-  <%= f.input :name, :label => "Nombre del Articulo:", placeholder: "Mínimo 5 caracteres" %>
-  <%= f.input :description, :label => "Descripción:", placeholder: "Describe en forma detallada, características y estado de tu producto. (Mínimo 25 caracteres)", input_html: { rows: 8 } %>
-  <div class="row">
-    <div class="col-6">
-      <%= f.input :price, :label => "Precio:", placeholder: "Mínimo $1000" %>
+    <strong><%= f.input :name, label: "Nombre del Articulo:", placeholder: "Mínimo 5 caracteres" %></strong>
+    <strong> <%= f.input :description, label: "Descripción:", placeholder: "Describe en forma detallada, características y estado de tu producto. (Mínimo 25 caracteres)", input_html: { rows: 8 } %></strong>
+    <div class="row">
+      <div class="col-6">
+        <strong><%= f.input :price, label: "Precio:", placeholder: "Mínimo $1000" %></strong>
+      </div>
+      <div class="col-6">
+        <strong><%= f.association :category, label: "Categoría:", as: :select %></strong>
+      </div>
     </div>
-    <div class="col-6">
-      <%= f.association :category, :label => "Categoría:", as: :select %>
-    </div>
-  </div>
-  <%= f.input :picture, :label => "Imagen del producto:", as: :file, input_html: { class: "form-control" } %>
-  <%= f.submit "Crear Articulo", class: "btn btn-outline-primary btn-block" %>
+    <strong><%= f.input :picture, label: "Imagen del producto:", as: :file, input_html: { class: "form-control" } %></strong>
+    <%= f.submit "Crear Articulo", class: "btn btn-outline-primary btn-block" %>
   <% end %>
 </div>

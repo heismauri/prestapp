@@ -1,14 +1,26 @@
-<div class="py-4">
-    <%= simple_form_for(@order_detail) do |f| %>
-    <%= f.hidden_field :order_id, value: current_order.id %>
-    <%= f.input :street, :label => "Calle:", placeholder: "Ejemplo: Alameda" %>
-    <%= f.input :number, :label => "Número:", placeholder: "Ejemplo: #253" %>
-    <%= f.input :city, :label => "Ciudad:", placeholder: "Ejemplo: Santiago" %>
-    <%= f.input :card_number, :label => "Número de tarjeta:", placeholder: "Ejemplo: 4659 1234 2345 6789" %>
-    <%= f.input :card_type, :label => "Seleccione tarjeta:", collection: [
+<div class="col-md-8 mx-auto py-3">
+  <%= simple_form_for(@order_detail) do |f| %>
+    <div class="row">
+      <%= f.hidden_field :order_id, value: current_order.id %>
+      <div class="col-12">
+        <strong><%= f.input :street, label: "Calle:", placeholder: "Ejemplo: Alameda" %></strong>
+      </div>
+      <div class="col-6">
+        <strong><%= f.input :number, label: "Número:", placeholder: "Ejemplo: #253" %></strong>
+      </div>
+      <div class="col-6">
+        <strong><%= f.input :city, label: "Ciudad:", placeholder: "Ejemplo: Santiago" %></strong>
+      </div>
+      <div class="col-12 col-md-7">
+        <strong><%= f.input :card_number, label: "Número de tarjeta:", placeholder: "Ejemplo: 4659 1234 2345 6789" %></strong>
+      </div>
+      <div class="col-12 col-md-5">
+        <strong><%= f.input :card_type, label: "Seleccione tarjeta:", collection: [
         ["Visa", "visa"],
         ["Mastercard", "mastercard"]
-    ] %>
-    <%= f.submit "Confirmar compra", class: "btn btn-outline-primary btn-block" %>
-    <% end %>
+        ] %></strong>
+      </div>
+      <%= f.submit "Confirmar compra", class: "btn btn-outline-primary btn-block" %>
+    </div>
+  <% end %>
 </div>
