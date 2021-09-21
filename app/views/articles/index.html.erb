@@ -1,34 +1,40 @@
-<div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wearetesters.com/wp-content/uploads/2019/07/neonbrand-SvhXD3kPSTY-unsplash-1080x675.jpg')">
-  <h2>Mis productos para Arrendar</h2>
+<div class="banner-category"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wearetesters.com/wp-content/uploads/2019/07/neonbrand-SvhXD3kPSTY-unsplash-1080x675.jpg')">
+  <h1>Mis productos para Arrendar</h1>
 </div>
 
 <section class="articles">
   <div class="py-4">
-    <div class="section-header px-3">
-      <h3>Mi listado de productos:</h3>
+    <div class="section-header">
+      <h2>Mi listado de artículos:</h2>
     </div>
   </div>
- <div class= "row">
+  <div class="row">
     <% @articles.each do |result| %>
-      <div class= "col-12 col-lg-6">
-       <div class="card-owner">
-         <%= cl_image_tag result.picture.key, class: "card-img-top", alt: "#{result.name}", width: 500, height: 300, crop: :fill %>
-         <div class="card-product-infos">
-           <h2>Nombre: <%= result.name %></h2>
-           <h2>Precio: <%= result.formatted_price %></h2>
-           <%= link_to article_path(result) do %>
-           <i class="fas fa-eye"></i>
-           <% end %>
-           <%= link_to edit_article_path(result) do %>
-           <i class="fas fa-pencil-alt"></i>
-           <% end %>
-           <%= link_to article_path(result), method: :delete, data: { confirm: "¿Estás seguro de eliminar #{result.name}?" } do %>
-           <i class="fas fa-trash-alt"></i>
-           <% end %>
-         </div>
+    <div class="col-12 col-lg-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-horizontal">
+          <div class="img-square-wrapper">
+            <%= cl_image_tag result.picture.key, alt: "#{result.name}", width: 150, height: 150, crop: :fill %>
+          </div>
+          <div class="card-body">
+            <h5 class="font-weight-bold"><%= link_to result.name, article_path(result) %></h5>
+            <h6><%= result.formatted_price %></h6>
+            <div class="card-buttons">
+              <%= link_to article_path(result) do %>
+              <i class="fas fa-eye"></i>
+              <% end %>
+              <%= link_to edit_article_path(result) do %>
+              <i class="fas fa-pencil-alt ml-1"></i>
+              <% end %>
+              <%= link_to article_path(result), class: "text-danger", method: :delete, data: { confirm: "¿Estás seguro de eliminar #{result.name}?" } do %>
+              <i class="fas fa-trash-alt ml-1"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </section>
