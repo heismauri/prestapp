@@ -13,7 +13,6 @@
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "Categorias", categories_path, class: "nav-link" %>
-        
       </li>
       <li class="nav-item">
         <%= link_to "Mi carrito", edit_order_path(current_order), class: "nav-link" %>
@@ -35,7 +34,7 @@
         <%= link_to "Ingresa", new_user_session_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Crea tu cuenta", new_user_registration_path, class: "nav-link btn btn-primary" %>
+        <%= link_to "Crea tu cuenta", new_user_registration_path, class: "nav-link btn btn-primary ml-md-2 text-white" %>
       </li>
       <% end %>
     </ul>
