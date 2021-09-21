@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-md navbar-dark navbar-prestapp bg-orange">
   <%= link_to "PrestApp", root_path, class: "navbar-brand" %>
   <%= form_tag(search_path, method: :get, class: "form-inline navbar-search") do %>
-  <%= search_field_tag :search, params[:search], placeholder: "¿Qué deseas arrendar?", class: "form-control" %>
+  <%= search_field_tag :keyword, params[:keyword], placeholder: "¿Qué deseas arrendar?", class: "form-control" %>
   <button class="nav-mgngls" type="submit"><i class="fas fa-search"></i></button>
   <% end %>
   <button class="navbar-toggler ml-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
