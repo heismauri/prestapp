@@ -7,6 +7,10 @@ class PagesController < ApplicationController
   end
 
   def show
-    render template: "pages/#{params[:page]}"
+    if params[:page] == "home"
+      redirect_to root_path
+    else
+      render template: "pages/#{params[:page]}"
+    end
   end
 end
