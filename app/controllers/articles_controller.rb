@@ -43,6 +43,7 @@ class ArticlesController < ApplicationController
   def search
     @parameter = params[:keyword].downcase
     @results = Article.search_results(@parameter)
+    @categories = Category.all
   end
 
   private
