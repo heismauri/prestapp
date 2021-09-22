@@ -1,20 +1,44 @@
-<h1>"<%= @parameter %>"</h1>
-<h5><%= pluralize(@results.length, "result") %></h5>
+<div class="medium-banner shadow-sm rounded-bottom text-white"
+  style="--banner-image: url('https://source.unsplash.com/JhU0w96iKoY/1110x180')">
+  <h1>Resultados de búsqueda</h1>
+</div>
+
+<div class="m-4">
+  <h3>Articulo consultado: "<%= @parameter %>"</h3>
+  <h5><%= pluralize(@results.length, "resultado") %></h5>
+</div>
+
 <div class="row">
-  <div class="col-3">
-  </div>
-  <div class="col-9">
-    <div class="border rounded">
-      <% @results.each do |result| %>
-      <div class="search-card border-bottom row m-0 p-3">
-        <div class="search-image col p-0">
-          <%= cl_image_tag result.picture.key, class: "img-fluid rounded shadow", alt: "", width: 200, height: 200, crop: :fill %>
-        </div>
-        <div class="seach-body col-8 p-0">
-          <%= link_to result.name, article_path(result) %>
-        </div>
+  <div class="col-12 col-md-3">
+    <h4>Categorias:</h4>
+    <ul>
+      <% @categories.each do |category| %>
+      <div class="row">
+        <li><%= link_to category.name, category_path(category) %></li>
       </div>
       <% end %>
+    <ul>
+  </div>
+  <div class="col-12 col-md-9 pb-4">
+    <div class="rounded">
+      <div class="row">
+        <% @results.each do |result| %>
+        <div class="col-12 col-lg-6 mb-3 pl-lg-0">
+          <div class="card shadow-sm">
+            <div class="card-horizontal">
+              <div class="img-square-wrapper">
+                <%= cl_image_tag result.picture.key, alt: "#{result.name}", width: 170, height: 170, crop: :fill %>
+              </div>
+              <div class="card-body">
+                <h5 class="font-weight-bold"><%= link_to result.name, article_path(result) %></h5>
+                <h6><%= result.formatted_price %></h6>
+                <p class="text-muted"><small>Ofrecido por: <%= result.user.full_name %></small></p>
+              </div>
+            </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
