@@ -1,23 +1,28 @@
+<div class="medium-banner shadow-sm rounded-bottom text-white"
+  style="--banner-image: url('https://source.unsplash.com/wL7pwimB78Q/1110x180')">
+  <h1>Mi carrito</h1>
+</div>
+
 <div class="py-4">
-<% if current_order.total_items > 0 %>
-    <div class="card rounded-sm shadow-sm mb-4">
+  <% if current_order.total_items > 0 %>
+  <div class="card rounded-sm shadow-sm mb-4">
     <hr class="m-0">
     <div class="row pt-4 px-4">
       <% current_order.order_items.each do |items| %>
-        <div class="col-md-6 d-flex mb-4">
-          <%= cl_image_tag items.article.picture.key, class: "img-thumbnail", alt: "", width: 150, height: 150, crop: :fill %>
-          <div class="flex-grow-1 p-2">
-            <p class="m-0">Articulo: <%= items.article.name %></p>
-            <p><small class="text-muted">Categoria: <%= items.article.category.name %></small></p>
-            <p>Precio: <%= items.article.formatted_price %></p>
-            <%= link_to article_path(items.article), class: "btn btn-outline-primary shadow " do %>
-              <i class="fas fa-eye"></i> Ver
-            <% end %>
-            <%= link_to order_item_path(items), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{items.article.name}'?" } do %>
-              <i class="fas fa-trash"></i> Eliminar
-            <% end %>
-          </div>
+      <div class="col-md-6 d-flex mb-4">
+        <%= cl_image_tag items.article.picture.key, class: "img-thumbnail", alt: "", width: 150, height: 150, crop: :fill %>
+        <div class="flex-grow-1 p-2">
+          <p class="m-0">Articulo: <%= items.article.name %></p>
+          <p><small class="text-muted">Categoria: <%= items.article.category.name %></small></p>
+          <p>Precio: <%= items.article.formatted_price %></p>
+          <%= link_to article_path(items.article), class: "btn btn-outline-primary shadow " do %>
+          <i class="fas fa-eye"></i> Ver
+          <% end %>
+          <%= link_to order_item_path(items), class: "btn btn-outline-danger shadow delete-bookmark", method: :delete, data: { confirm: "Delete '#{items.article.name}'?" } do %>
+          <i class="fas fa-trash"></i> Eliminar
+          <% end %>
         </div>
+      </div>
       <% end %>
     </div>
     <hr class="m-0">
@@ -31,10 +36,10 @@
   <div class="card rounded-sm shadow-sm">
     <div class="row p-4">
       <h2 class="display-5 text-center w-100 m-2">No hay articulos en tu carrito 😥</h1>
-</div>
-      <%= link_to "Volver al inicio", root_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
-      <%= link_to "Ver categorías", categories_path, class: "mx-4 mb-4 btn btn-outline-primary" %>  
-    
+    </div>
+    <%= link_to "Volver al inicio", root_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
+    <%= link_to "Ver categorías", categories_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
+
   </div>
-<% end %>
+  <% end %>
 </div>
