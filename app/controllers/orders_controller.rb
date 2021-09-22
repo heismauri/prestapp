@@ -11,8 +11,7 @@ class OrdersController < ApplicationController
     authorize @order
     step = params[:step] || nil
 
-    case step
-    when "shipping"
+    if step == "shipping" && @order.order_items.count.positive?
       @order_detail = OrderDetail.new
       @tpl_name = "orders/partials/shipping_form"
     else
