@@ -1,5 +1,6 @@
-<div class="banner-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @category.picture.key, width: 1920, height: 300, crop: :fill %>')">
-  <h2 class="align-text-bottom"><%= @category.name %></h2>
+<div class="medium-banner shadow-sm rounded-bottom text-white"
+  style="--banner-image: url('<%= cl_image_path @category.picture.key, width: 1110, height: 180, crop: :fill %>')">
+  <h1><%= @category.name %></h1>
 </div>
 
 <section class="articles">
@@ -9,20 +10,16 @@
     </div>
 
     <% @articles.each do |result| %>
-      <div class="col-4 mt-3">
-        <div class="card rounded-sm shadow-sm">
-          <%= cl_image_tag result.picture.key, class: "card-img-top", alt: "#{result.name}", width: 500, height: 300, crop: :fill %>
+    <div class="col-4 mt-3">
+      <div class="card rounded-sm shadow-sm">
+        <%= cl_image_tag result.picture.key, class: "card-img-top", alt: "#{result.name}", width: 500, height: 300, crop: :fill %>
 
-          <div class="card-body">
-            <h5 class="card-title font-weight-bold text-center"><%= link_to result.name, article_path(result) %></h5>
-            <p class="card-text text-end"><%= result.formatted_price %></p>
-          </div>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold text-center"><%= link_to result.name, article_path(result) %></h5>
+          <p class="card-text text-end"><%= result.formatted_price %></p>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 </section>
-
-
-
-
