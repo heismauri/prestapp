@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[show search]
   # rescue_from Pundit::NotAuthorizedError do
-  #   redirect_to root_path, alert: "You aren't allowed to do that"
+  # redirect_to root_path, alert: "You aren't allowed to do that"
   # end
 
   def index
@@ -21,9 +21,12 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     authorize @article
-    @article.save
 
-    redirect_to article_path(@article)
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -31,7 +34,11 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
 
-    redirect_to article_path(@article)
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
   end
 
   def destroy

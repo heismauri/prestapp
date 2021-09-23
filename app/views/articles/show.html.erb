@@ -19,21 +19,21 @@
       <hr>
       <h2><%= @article.formatted_price %></h2>
       <% if user_signed_in? %>
-        <% if policy(@article).owner?%>
-          <%= link_to "Editar articulo", edit_article_path(current_order), class: "btn btn-outline-primary btn-block" %>
-        <% else %>
-          <%= form_with(model: current_order.order_items.new) do |f| %>
-            <% unless current_order.order_items.exists?(article_id: @article.id)  %>
-              <%= f.hidden_field :order_id, value: current_order.id %>
-              <%= f.hidden_field :article_id, value: @article.id %>
-              <%= f.submit "Agregar al carrito", class: "btn btn-outline-primary btn-block" %>
-            <% else %>
-              <%= link_to "Ir a mi carrito", edit_order_path(current_order), class: "btn btn-primary btn-block" %>
-            <% end %>            
-          <% end %>
-        <% end %>
+      <% if policy(@article).owner?%>
+      <%= link_to "Editar articulo", edit_article_path(@article), class: "btn btn-outline-primary btn-block" %>
       <% else %>
-        <%= link_to "Registrate para arrendar", new_user_registration_path, class: "btn btn-primary" %>
+      <%= form_with(model: current_order.order_items.new) do |f| %>
+      <% unless current_order.order_items.exists?(article_id: @article.id)  %>
+      <%= f.hidden_field :order_id, value: current_order.id %>
+      <%= f.hidden_field :article_id, value: @article.id %>
+      <%= f.submit "Agregar al carrito", class: "btn btn-outline-primary btn-block" %>
+      <% else %>
+      <%= link_to "Ir a mi carrito", edit_order_path(current_order), class: "btn btn-primary btn-block" %>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% else %>
+      <%= link_to "Registrate para arrendar", new_user_registration_path, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
