@@ -80,7 +80,10 @@ art_u1.user = user_alberto
 art_u1.save
 
 art_file = URI.open('https://source.unsplash.com/66JMudIjDTw/1080x1080')
-art_u1 = Article.new(name: 'Parlante', description: Faker::Lorem.paragraph_by_chars, price: 44000)
+art_u1 = Article.new(name: 'Audifono inalambrico', description: 'Audífonos bluetooth ideales para jugar y experimentar un gran sonido. 
+  Puedes utilizarlo en cualquier dispositivo con bluetooth. Blauw GM03 no necesitas tener mas de un par. 
+  Utilízalos en tu celular, TV, computadora, Play Station! 
+  El micrófono es flexible y desmontable para una mayor comodidad. Posee botones de control en el audífono. ', price: 5000)
 art_u1.picture.attach(io: art_file, filename: '66JMudIjDTw.jpg', content_type: 'image/jpg')
 art_u1.category = elec_category
 art_u1.user = user_alberto
@@ -88,14 +91,16 @@ art_u1.save
 
 puts "50% completado..."
 art_file = URI.open('https://source.unsplash.com/w2VLVCg5K-k/1080x1080')
-art_u1 = Article.new(name: 'Caja Herramientas', description: Faker::Lorem.paragraph_by_chars, price: 77500)
+art_u1 = Article.new(name: 'Caja de Herramientas', description: 'Kit de herraamientas para manualidades, 5 destorniadores, 2 paletas,1 alicate,
+  1 manual para tarugos, instalador de ceramica.', price: 13500)
 art_u1.picture.attach(io: art_file, filename: 'w2VLVCg5K-k.jpg', content_type: 'image/jpg')
 art_u1.category = hym_category
 art_u1.user = user_alberto
 art_u1.save
 
 art_file = URI.open('https://source.unsplash.com/-HJDhIQ4jYE/1080x1080')
-art_u1 = Article.new(name: 'Disfraz', description: Faker::Lorem.paragraph_by_chars, price: 95000)
+art_u1 = Article.new(name: 'Disfraz', description: 'Alequín 
+  Camisa , pantalón  y sombrero. Instrumiento acordeón es opcional.', price: 12900)
 art_u1.picture.attach(io: art_file, filename: '-HJDhIQ4jYE.jpg', content_type: 'image/jpg')
 art_u1.category = dsf_category
 art_u1.user = user_alberto
@@ -104,14 +109,15 @@ art_u1.save
 # Adding 5 Articles to user 1
 puts "Agregando Articulos usuario 2..."
 art_file = URI.open('https://source.unsplash.com/WnY0-rZnPvc/1080x1080')
-art_u1 = Article.new(name: 'Zapatillas And1', description: Faker::Lorem.paragraph_by_chars, price: 59990)
+art_u1 = Article.new(name: 'Zapatillas And1', description: 'Modelo trail running mujer / talla 3', price: 6990)
 art_u1.picture.attach(io: art_file, filename: 'WnY0-rZnPvc.jpg', content_type: 'image/jpg')
 art_u1.category = man_category
 art_u1.user = user_zara
 art_u1.save
 
 art_file = URI.open('https://source.unsplash.com/4yEMu_YamEo/1080x1080')
-art_u1 = Article.new(name: 'Jeep 4x4', description: Faker::Lorem.paragraph_by_chars, price: 2750000)
+art_u1 = Article.new(name: 'Jeep 4x4', description: 'Entrega en aeropuerto Carriel Sur - Concepción, atención todos los días de la semana. 
+  Jeep 4x4 , todo terreno, seguros incluidos, kit de seguridad.', price: 132990)
 art_u1.picture.attach(io: art_file, filename: '4yEMu_YamEo.jpg', content_type: 'image/jpg')
 art_u1.category = car_category
 art_u1.user = user_zara
@@ -119,14 +125,25 @@ art_u1.save
 
 puts "50% completado..."
 art_file = URI.open('https://source.unsplash.com/FU1KddSIIR4/1080x1080')
-art_u1 = Article.new(name: 'Evento Jazz', description: Faker::Lorem.paragraph_by_chars, price: 18000)
+art_u1 = Article.new(name: 'Evento Jazz', description: 'Concepción no sólo da espacio al rock and roll, también a otros géneros, y el jazz es un buen ejemplo.
+  Anfiteatro del Cerro Caracol.
+  Dias disponibles : 20 y 22 de octubre 2021
+  Carlos Cortés Hammond Trío, 
+  Monreal Latin Blues y la Big Band Concepción.', price: 77000)
 art_u1.picture.attach(io: art_file, filename: 'FU1KddSIIR4.jpg', content_type: 'image/jpg')
 art_u1.category = evts_category
 art_u1.user = user_zara
 art_u1.save
 
 art_file = URI.open('https://source.unsplash.com/KfMj3fi4R4s/1080x1080')
-art_u1 = Article.new(name: 'Camara Profesional', description: Faker::Lorem.paragraph_by_chars, price: 125000)
+art_u1 = Article.new(name: 'Camara Profesional', description: 'Cámara Profesional
+  Tamaño de pantalla 3 pulgadas
+  Formatos de imagen: JPEG/RAW
+  Sensibilidad ISO: Auto 100-25600 (51200 max)
+  Alto	:7,7 cm
+  Ancho	:8,35 cm
+  Profundidad :10,73 cm
+  Porta estuche incluido', price: 29990)
 art_u1.picture.attach(io: art_file, filename: 'KfMj3fi4R4s.jpg', content_type: 'image/jpg')
 art_u1.category = elec_category
 art_u1.user = user_zara
