@@ -15,7 +15,7 @@
       <hr>
       <p><%= @article.description %></p>
       <hr>
-      <p><i class="fas fa-truck text-primary"></i> Envío gestionado por: <small>Starken</small></p>
+      <p><i class="fas fa-user-alt text-primary"></i> Arrendado por: <small><%= @article.user.full_name %></small></p>
       <hr>
       <h2><%= @article.formatted_price %></h2>
       <% if user_signed_in? %>
@@ -33,7 +33,7 @@
       <% end %>
       <% end %>
       <% else %>
-      <%= link_to "Registrate para arrendar", new_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to "Registrate para arrendar", new_user_registration_path, class: "btn btn-primary btn-block" %>
       <% end %>
     </div>
   </div>

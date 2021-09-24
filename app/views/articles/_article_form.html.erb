@@ -11,6 +11,10 @@
       </div>
     </div>
     <strong><%= f.input :picture, label: "Imagen del producto:", as: :file, input_html: { class: "form-control" } %></strong>
-    <%= f.submit "Crear Articulo", class: "btn btn-outline-primary btn-block" %>
+    <% if @article.id.nil?  %>
+      <%= f.submit "Crear Articulo", class: "btn btn-outline-primary btn-block" %>
+    <% else %>
+      <%= f.submit "Actualizar Articulo", class: "btn btn-outline-primary btn-block" %>
+    <% end %>
   <% end %>
 </div>
