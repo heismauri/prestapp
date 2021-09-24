@@ -25,7 +25,8 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)
     else
-      render :new
+      flash[:alert] = "Por favor verifica los campos con errores"
+      render :new      
     end
   end
 

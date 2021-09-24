@@ -106,6 +106,14 @@ art_u1.category = dsf_category
 art_u1.user = user_alberto
 art_u1.save
 
+art_file = URI.open('https://source.unsplash.com/CQkBjIfJjwY/1850x1550')
+art_u1 = Article.new(name: 'Cortadora de Pasto', description: 'desarrollado para facilitar la conducción en la mantención de jardines domiciliarios o que requieran corte frecuente. Está equipado con un motor de gasolina de 3,5 HP de máxima potencia. Recolector de césped y función trituración.
+  Su estructura es de acero de alta resistencia y durabilidad. Tiene una plataforma y una cuchilla que proporcionan 42 cm o 16" de ancho de corte con 5 niveles de ajuste de altura.', price: 38500)
+art_u1.picture.attach(io: art_file, filename: 'CQkBjIfJjwY.jpg', content_type: 'image/jpg')
+art_u1.category = hym_category
+art_u1.user = user_alberto
+art_u1.save
+
 # Adding 5 Articles to user 1
 puts "Agregando Articulos usuario 2..."
 art_file = URI.open('https://source.unsplash.com/WnY0-rZnPvc/1080x1080')
@@ -119,6 +127,13 @@ art_file = URI.open('https://source.unsplash.com/4yEMu_YamEo/1080x1080')
 art_u1 = Article.new(name: 'Jeep 4x4', description: 'Entrega en aeropuerto Carriel Sur - Concepción, atención todos los días de la semana. 
   Jeep 4x4 , todo terreno, seguros incluidos, kit de seguridad.', price: 132990)
 art_u1.picture.attach(io: art_file, filename: '4yEMu_YamEo.jpg', content_type: 'image/jpg')
+art_u1.category = maq_category
+art_u1.user = user_zara
+art_u1.save
+
+art_file = URI.open('https://source.unsplash.com/XLmWt913EOc/1080x1080')
+art_u1 = Article.new(name: 'Tractor 5076 John Deere', description: 'Motor John Deere PowerTech™ de 4 cilindros y 77 hp. Transmisión sincronizada 9X3. Simple o doble tracción. Ancho total del tractor 1.4 m.', price: 115000)
+art_u1.picture.attach(io: art_file, filename: 'XLmWt913EOc.jpg', content_type: 'image/jpg')
 art_u1.category = car_category
 art_u1.user = user_zara
 art_u1.save
@@ -148,5 +163,7 @@ art_u1.picture.attach(io: art_file, filename: 'KfMj3fi4R4s.jpg', content_type: '
 art_u1.category = elec_category
 art_u1.user = user_zara
 art_u1.save
+
+
 
 puts "Proceso finalizado"

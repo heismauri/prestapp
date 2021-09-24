@@ -3,8 +3,8 @@ class Article < ApplicationRecord
   belongs_to :user
   has_one_attached :picture
 
-  validates :name, presence: true, length: { minimum: 5 }
-  validates :description, presence: true, length: { minimum: 25 }
+  validates :name, presence: true, length: { minimum: 5, too_short: "- %{count} caracteres es el mínimo permitido" }
+  validates :description, presence: true, length: { minimum: 25, too_short: "- %{count} caracteres es el mínimo permitido" }
   validates :price, presence: true, numericality: { greater_than: 1000, only_integer: true }
   validates :picture, presence: true
 
