@@ -5,6 +5,7 @@
 
 <section class="articles">
   <div class="row py-4">
+    <% unless @articles.blank? %>
     <% @articles.each do |result| %>
     <div class="col-12 col-lg-6">
       <div class="card mb-4 shadow-sm">
@@ -31,5 +32,16 @@
       </div>
     </div>
     <% end %>
+  <% else %>
+  <div class="col-12">
+  <div class="card rounded-sm shadow-sm">
+    <div class=" p-4">
+      <h2 class="display-5 text-center w-100 m-2">No tienes articulos publicados 😥</h1>
+    </div>
+    <%= link_to "Quiero generar ingresos", new_article_path, class: "mx-4 mb-4 btn btn-primary" %>
+    <%= link_to "Volver al inicio", root_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
+  </div>
+  </div>
+  <% end %>
   </div>
 </section>

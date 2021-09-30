@@ -1,6 +1,10 @@
-<h1 class="pt-2">Mis Ordenes:</h1>
+<div class="medium-banner shadow-sm rounded-bottom text-white"
+  style="--banner-image: url('https://source.unsplash.com/snNHKZ-mGfE/1110x180')">
+  <h1>Mis Ordenes:</h1>
+</div>
 
 <div class="py-4">
+    <% unless @orders.blank? %>
   <% @orders.each do |order| %>
   <div class="card rounded-sm shadow-sm mb-4">
     <div class="card-body">
@@ -27,6 +31,15 @@
       <p><em class="text-muted">Order items:</em> <%= order.total_items %></p>
       <p><em class="text-muted">Total:</em> <%= order.formatted_total %></p>
     </div>
+  </div>
+  <% end %>
+    <% else %>
+  <div class="card rounded-sm shadow-sm">
+    <div class=" p-4">
+      <h2 class="display-5 text-center w-100 m-2">No tienes ordenes activas</h1>
+    </div>
+    <%= link_to "Quiero generar ingresos", new_article_path, class: "mx-4 mb-4 btn btn-primary" %>
+    <%= link_to "Quiero ahorrar", categories_path, class: "mx-4 mb-4 btn btn-outline-primary" %>
   </div>
   <% end %>
 </div>
